@@ -1,0 +1,18 @@
+---
+version: "3.9"
+services:
+  redis:
+    image: redis:latest
+    command: [redis-server, --save, "60", "1", --loglevel, warning]
+    ports:
+      - target: ${REDIS_PORT:-6379}
+        published: ${REDIS_PORT_PUBLISHED:-6379}
+        mode: host
+    deploy:
+      replicas: ${REDIS_MANAGER_REPLICAS:-1}
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
