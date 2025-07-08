@@ -1,0 +1,61 @@
+# Ignore Ansible vault files
+*.vault
+*.vault.yml
+*.vault.json
+*.vault.yaml
+
+# Ignore inventory files containing sensitive information
+#inventory/
+#hosts
+#*.ini
+#*.cfg
+
+# Ignore SSH private keys
+id_rsa
+id_rsa.pub
+*.pem
+*.key
+
+# Ignore secrets and credentials
+group_vars/*secrets*
+host_vars/*secrets*
+secrets.yml
+vault_pass.txt
+
+# Ignore temporary Ansible files
+*.retry
+*.log
+ansible.log
+ansible-debug.txt
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore Vagrant files (if using Vagrant)
+.vagrant/
+
+# Ignore Python virtual environments
+venv/
+.env/
+
+# Ignore package management files
+*.tar.gz
+*.zip
+*.egg-info/
+*.dist-info/
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore Terraform state files (if using Terraform with Ansible)
+terraform.tfstate
+terraform.tfstate.backup
+.terraform/
+
+####################
+# Custom For Project
+####################
+**/vars/git_credentials.yaml
+**/.env
+!**/.env.template
